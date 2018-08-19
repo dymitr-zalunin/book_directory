@@ -21,6 +21,13 @@ function add_new_book(bookObject) {
   return book;
 }
 
+function save_books(newBooks) {
+  books.clear();
+  newBooks.forEach(function(book) {
+    add_new_book(book);
+  });
+}
+
 function delete_book(id) {
   console.log('Delete '+id);
   console.log('Delete '+(typeof id));
@@ -92,10 +99,12 @@ router.route('/books/:book_id')
     }
   });
 
-router.route('/books/bulk_load')
+router.route('/books/save')
   .post(function(req, res){
     //parse a list of books
-    console.log('Saving ' + req.body.stringify() + ' book');
+    var newBooks = req.body;
+    save_books(req.body);
+    console.log('Saving ' + JSON.stringify(req.body) + ' book');
     res.json({status: 'OK'});
   });
 
