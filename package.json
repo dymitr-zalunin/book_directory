@@ -1,0 +1,10 @@
+{
+  "name": "js_book_directory",
+  "version": "1.0.0",
+  "description": "A simple book directory which stores the list of book in the file",
+  "main": "server.js",
+  "author": "Dymitr Zalunin",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
